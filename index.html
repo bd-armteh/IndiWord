@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>First page</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/normalize.css">
+
+<script src="js/jquery.min.js"></script>
+<script src="js/word_levels.js"></script> 
+<script src="js/base.js"></script> 
+
+</head>
+<body>
+  	
+  	<!-- Game loader scrin -->
+  	<div class="bgColorFill">
+		<div id="GameLoadingScreen">
+			<div class="headMini">Свободная игра</div>
+			<div id="loadProgresLine">
+				<div class="loadProgresLineTop"></div>
+				<div class="loadProgresLineBack"></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Main menu -->
+	<div id="MainMenu" class="GameTitle">
+		<div class="head">ИндиВорд</div>
+		<div class="headMini">в поисках глагола</div>
+		<a id="MainMenuButtonPlay" class="buttonPlay" href="#">Играть</a>
+		
+	</div>
+
+	<div id="author_info">
+		<p>Автор: Бондаренко Дмитрий. 2021 <a href="https://www.behance.net/bd-armteh">Портфолио</a></p>
+	</div>
+	
+
+<div id="gameUI">
+	<div id="gameTopBar">
+		<div class="gameMenuButton"><a href="#" id="gameTopBarMenuButton">Меню</a></div>
+		<div class="gameMenuButton"><a href="#" id="gameTopBarPromptButton">Подсказка</a></div>
+		<div class="gameStatus">
+			<p  title="Кол-во ходов игрока">Ходы игрока: <span class="userAttempts">0</span></p>
+			<p  title="Оставшееся кол-во ходов">Осталось ходов: <span class="gameAttempts">2</span></p>
+			<p  title="Уровень">Уровень: <span class="gameLevels">1</span></p>
+		</div>
+	</div>
+</div>
+
+
+<!-- Alert Popap -->
+	<div id="AlertPop">
+		<span>×</span>
+		<p>Ой, что то не так. Попробуйте снова</p>
+		<a href="#">Обновить</a>
+	</div>
+
+<div id="wrapper">
+
+	<div id="gameScreen">
+		<div id="screenResult">
+			<ul class="keyboard">
+								
+			</ul>
+		</div>
+		<div id="screenKey">
+			<ul class="keyboard">
+				<li class="keyWrap" keyId="1">А</li>
+				<li class="keyWrap" keyId="2">Б</li>
+				<li class="keyWrap" keyId="3">В</li>
+				<li class="keyWrap" keyId="4">Г</li>
+				<li class="keyWrap" keyId="5">Д</li>
+				<li class="keyWrap" keyId="6">Е</li>
+				<li class="keyWrap" keyId="7">Ё</li>
+				<li class="keyWrap" keyId="8">Ж</li>
+				<li class="keyWrap" keyId="9">З</li>
+				<li class="keyWrap" keyId="10">И</li>
+				<li class="keyWrap" keyId="11">Й</li>
+				<li class="keyWrap" keyId="12">К</li>
+				<li class="keyWrap" keyId="13">Л</li>
+				<li class="keyWrap" keyId="14">М</li>
+				<li class="keyWrap" keyId="15">Н</li>
+				<li class="keyWrap" keyId="16">О</li>
+				<li class="keyWrap" keyId="17">П</li>
+				<li class="keyWrap" keyId="18">Р</li>
+				<li class="keyWrap" keyId="19">С</li>
+				<li class="keyWrap" keyId="20">Т</li>
+				<li class="keyWrap" keyId="21">У</li>
+				<li class="keyWrap" keyId="22">Ф</li>
+				<li class="keyWrap" keyId="23">Х</li>
+				<li class="keyWrap" keyId="24">Ц</li>
+				<li class="keyWrap" keyId="25">Ч</li>
+				<li class="keyWrap" keyId="26">Ш</li>
+				<li class="keyWrap" keyId="27">Щ</li>
+				<li class="keyWrap" keyId="28">Ъ</li>
+				<li class="keyWrap" keyId="29">Ы</li>
+				<li class="keyWrap" keyId="30">Ь</li>
+				<li class="keyWrap" keyId="31">Э</li>
+				<li class="keyWrap" keyId="32">Ю</li>
+				<li class="keyWrap" keyId="33">Я</li>
+			</ul>
+		</div>
+	</div>
+	
+
+
+
+</div>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+	<div class="modal-content">
+		<div class="modal-content-text"></div>
+		<div class="modal-content-button">
+			<span class="modalButton promptOk">ОК</span>
+			<span class="modalButton nextLevel">Дальше</span>
+			<span class="modalButton restartLevel">Переиграть</span>
+			<span class="modalButton mainMenu">Меню</span>
+		</div>
+		
+	</div>
+</div>
+
+
+
+
+</body>
+</html>

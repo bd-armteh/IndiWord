@@ -1,0 +1,676 @@
+:root {
+  --P_Color_01: #3C1D4F; /* темный феолетовый */
+  --P_Color_02: #FFE55E; /* желтый */
+  --P_Color_03: #7F20BA; /* светлый феолетовый */
+  --P_Color_04: #FFFFFF; /* белый */
+  
+
+  --FF_01: Rollock; /* шрифт Rollock */
+  --FF_02: Roboto; /* шрифт Roboto */
+
+  /*body { background-color: var(--blue); }  пример*/
+}
+
+
+@font-face {
+  font-family: Rollock;
+  src: url(../fonts/Rollock.woff2);
+}
+
+
+/* roboto-regular - cyrillic */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/roboto-v29-cyrillic-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/roboto-v29-cyrillic-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/roboto-v29-cyrillic-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/roboto-v29-cyrillic-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/roboto-v29-cyrillic-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/roboto-v29-cyrillic-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+
+
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+body {
+	background-color: var(--P_Color_01);
+	position: relative;
+}
+
+ul {
+	list-style: none;
+}
+
+
+
+
+#wrapper {
+	height: 100vh;
+}
+
+
+#gameUI {
+	display: none;
+}
+
+#gameTopBar {
+	position: absolute;
+	display: block;
+	
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	font-family: var(--FF_02);
+	color: var(--P_Color_04);
+	font-size: 1em;
+	padding-left: 8px;
+
+}
+
+#gameTopBar .gameMenuButton a {
+	text-decoration: none;
+	color: var(--P_Color_02);
+	background-color: var(--P_Color_03);
+	border: 1px solid var(--P_Color_03);
+	padding: 10px;
+	border-radius: 6px;
+	transition: all 0.15s ease;
+}
+
+#gameTopBarMenuButton {
+	font-family: var(--FF_01);
+	font-size: 2em;
+	border-radius: 0 0 6px 6px !important;
+	
+}
+
+#gameTopBar .gameMenuButton a:hover {
+	color: var(--P_Color_01);
+	background-color: var(--P_Color_02);
+	border: 1px solid var(--P_Color_02);
+}
+
+#gameTopBar .gameMenuButton a#gameTopBarPromptButton {
+	color: var(--P_Color_04);
+	background-color: var(--P_Color_03);
+	border: none;
+	animation-name: gameTopBarPromptButton;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+}
+
+#gameTopBar .gameMenuButton a#gameTopBarPromptButton:hover {
+	color: var(--P_Color_01);
+	background-color: var(--P_Color_02);
+	
+	border: none;
+	animation: paused;
+}
+
+/* Add Animation gameTopBarPromptButton */
+
+@keyframes gameTopBarPromptButton {
+  0% {background-color: #9529d7;} 
+  50% {background-color: var(--P_Color_03);}
+  100% {background-color: #9529d7;} 
+}
+
+
+
+#gameTopBar div {
+	display: inline-block;
+
+}
+
+#gameTopBar div:first-child{
+	margin-top: 10px;
+}
+
+
+.gameStatus p {
+	display: inline-block;
+	padding: 12px;
+  background: var(--P_Color_03);
+  border-radius: 6px;
+}
+
+
+#gameTopBar .gameStatus {
+	
+}
+
+
+.GameTitle {
+  	display: block;
+  	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%,-50%);
+  	text-align: center;
+}
+
+.GameTitle .head {
+	font-size: 8em;
+	color: var(--P_Color_02);
+	font-family: var(--FF_01);
+}
+
+.GameTitle .headMini {
+	font-size: 4em;
+	color: var(--P_Color_02);
+	font-family: var(--FF_01);
+	margin-top: -20px;
+
+
+}
+
+
+.buttonPlay  {
+	margin-top: 20px;
+	display: inline-block;
+	padding: 15px 40px;
+	background-color: var(--P_Color_03);
+	color: #fff;
+	text-decoration: none;
+
+	font-family: var(--FF_01);
+	font-size: 2.5em;
+	border-radius: 6px;
+	margin-bottom: 5px;
+	border-bottom: 4px solid transparent;
+	/*border-color: rgba(201, 76, 76, 0.0)*/
+
+}
+
+.buttonPlay:hover {
+	background-color: #971be4;
+	border-bottom: 4px solid var(--P_Color_02);
+}
+
+#author_info {
+	display: block;
+  position: absolute;
+  bottom: 20px;
+ 
+  color: var(--P_Color_04);
+  font-family: var(--FF_02);
+	font-size: 1.0em;
+	width: 100%;
+  text-align: center;
+  xopacity: 0.5;
+}
+
+#author_info a{
+	color: var(--P_Color_02);
+	transition: all 0.3s ease;
+}
+
+#author_info a:hover {
+	color: var(--P_Color_04);
+}
+
+#systemMenu {
+	display: none;
+}
+
+#systemMenuIcon {
+	position: absolute;
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	background-color: var(--P_Color_03);
+	right: 0;
+	top: 25px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	
+
+}
+
+#systemMenuIcon span {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: var(--P_Color_04);
+
+}
+
+
+
+#systemMenuDropContent {
+	xdisplay: inline-block;
+	position: fixed;
+	background-color: var(--P_Color_03);
+	max-width: 550px;
+	min-width: 550px;
+	height: 100%;
+	right: -550px;
+	padding: 20px;
+	z-index: 1000;
+	transition: all 0.3s ease;
+}
+
+#systemMenuDropContent p {
+	color: var(--P_Color_04);
+	font-family: var(--FF_02);
+	font-size: 1.2em;
+}
+
+#systemMenuDropContent p:last-of-type {
+	bottom: 15px;
+  position: absolute;
+}
+
+#systemMenuDropContent p:last-of-type a {
+	color: var(--P_Color_02);
+}
+
+.systemMenuIconActive {
+	right: 550px !important;
+}
+
+.systemMenuDropContentActive {
+	right: 0 !important;
+}
+
+
+
+
+/* system loadProgresBar */
+
+.bgColorFill {
+	display: none; /* block */
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	background-color: var(--P_Color_01);
+	z-index: 999;
+}
+
+
+#GameLoadingScreen {
+	display: block;
+  position: absolute;
+  width: 45%;
+  /*xmargin-top: 40vh;
+  xmargin-left: 33%;*/
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+}
+
+#GameLoadingScreen .head {
+	font-size: 8em;
+	color: var(--P_Color_02);
+	font-family: var(--FF_01);
+}
+
+#GameLoadingScreen .headMini {
+	font-size: 4em;
+	color: var(--P_Color_02);
+	font-family: var(--FF_01);
+	margin-top: -20px;
+
+}
+
+
+#loadProgresLine {
+	position: relative;
+	display: block;
+	max-width: 100%;
+	margin-top: 20px;
+}
+
+.loadProgresLineTop {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: var(--P_Color_02);
+	width: 100%;
+	height: 6px;
+	z-index: 1;
+	border-radius: 6px;
+}
+
+
+
+/* Add Animation loadProgresLineTop */
+.loadProgresLineTop {  
+  animation-name: loadProgres;
+  animation-duration: 1.5s;
+}
+
+@keyframes loadProgres {
+  from {width: 0%} 
+  to {width: 100%}
+}
+
+
+
+.loadProgresLineBack {
+	background-color: var(--P_Color_03);
+	max-width: 100%;
+	height: 6px;
+	z-index: 0;
+	border-radius: 6px;
+}
+
+
+
+/* system Alert popap */
+#AlertPop {
+	position: absolute;
+	display: none; /* block */
+	max-width: 85%;
+	transform: translate(-50%,-50%);
+	left: 50%;
+	bottom: 0%;
+	background-color: var(--P_Color_02);
+	color: var(--P_Color_01);
+	font-family: var(--FF_02), Arial;
+	font-size: 1.0em;
+	padding: 20px 30px;
+	font-weight: 600;
+	z-index: 1;
+}
+
+#AlertPop p {
+	display: inline-block;
+}
+
+#AlertPop a {
+	display: inline-block;
+	text-decoration: none;
+	margin-left: 20px;
+	padding: 10px;
+	color: var(--P_Color_03);
+	border: 1px solid var(--P_Color_03);
+	border-radius: 6px;
+	transition: all 0.3s ease;
+}
+
+#AlertPop a:hover {
+	color: var(--P_Color_01);
+	border-color: var(--P_Color_01);
+}
+
+#AlertPop span {
+	position: absolute;
+	right: -10px;
+	top: -10px;
+	width: 20px;
+	height: 20px;
+	background-color: var(--P_Color_03);
+	color: var(--P_Color_04);
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+}
+
+
+
+/* game screen */
+
+#gameScreen {
+	display: none;
+}
+
+
+#screenResult {
+	display: block;
+	max-width: 100%;
+	height: 700px;
+	margin: auto;
+}
+
+#screenResult .keyboard {
+	/*padding-top: 260px;*/
+	xpadding-top: 32vh;
+	padding-top: 100px;
+}
+
+
+#screenKey {
+	display: block;
+	position: fixed;
+	max-width: 100%;
+	height: auto;
+	bottom: 50px;
+	left: 0;
+	
+}
+
+#screenKey .keyboard {
+	max-width: 95%;
+	margin: auto;
+}
+
+.keyboard {
+	text-align: center;
+}
+
+.keyWrap {
+	display: inline-block;
+	width: 80px;
+	height: 80px;
+	background-color: var(--P_Color_03);
+	border-radius: 6px;
+	margin: 10px 5px 0px 0px;
+	padding-left: 4px;
+	text-align: center;
+
+	color: var(--P_Color_02);
+
+	font-family: var(--FF_01);
+	font-size: 2.5em;
+	padding-top: 20px;
+	transition: all 0.3s ease;
+	cursor: pointer;
+	border: 1px solid var(--P_Color_03);
+}
+
+
+#screenKey .keyWrap {
+	
+}
+
+
+#screenKey .keyWrap:hover {
+	background-color: var(--P_Color_01);
+	border: 1px solid var(--P_Color_02);
+}
+
+.keyWrap:last-of-type {
+	margin-right: 0px;
+}
+
+
+.keyWrapWrong {
+	cursor: not-allowed;
+	background-color: #818181;
+	border: 1px solid #818181;
+	color: #3C3C3C;
+}
+
+#screenKey .keyWrapWrong:hover {
+	color: #3C3C3C;
+	background-color: #818181;
+	border: 1px solid #818181;
+}
+
+
+.keyWrapRight {
+	cursor: not-allowed;
+	background-color: var(--P_Color_02);
+	border: 1px solid var(--P_Color_02);
+	color: var(--P_Color_03);
+}
+
+#screenKey .keyWrapRight:hover {
+	background-color: var(--P_Color_02);
+	border: 1px solid var(--P_Color_02);
+	color: var(--P_Color_03);
+}
+
+
+
+
+/* The Modal */
+
+/* The Modal (background) */
+.modal {
+  display: none; /*none Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  xpadding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+	display: block;
+  margin: auto auto;
+  max-width: 50%;
+  min-height: 150px;
+	text-align: center;
+  background-color: var(--P_Color_03);
+  color:  var(--P_Color_04);
+}
+
+.modal-content-text {
+	display: block;
+  padding: 50px 25px 0 25px;
+	color:  var(--P_Color_04);
+	font-family: var(--FF_01);
+	font-size: 2.5em;
+	color:  var(--P_Color_04);
+	/*text-align: center;*/
+}
+
+.modal-content-button {
+	padding-top: 50px;
+  padding-bottom: 50px;
+	color:  var(--P_Color_04);
+	font-family: var(--FF_01);
+	font-size: 1.7em;
+	color:  var(--P_Color_02);
+}
+
+.modal-content-button .modalButton {
+	display: none; /* inline-block */
+	padding: 10px 30px;
+	background-color: var(--P_Color_01);
+	cursor: pointer;
+	border-radius: 6px;
+	transition: all 0.1s ease;
+	margin-right: 15px;
+}
+
+
+.modal-content-button .modalButton:last-of-type {
+	margin-right: 0;
+}
+
+.modal-content-button .modalButton:hover {
+	background-color: var(--P_Color_02);
+	color:  var(--P_Color_01);
+}
+
+/* Add Animation */
+.modal-content {  
+  animation-name: zoom;
+  animation-duration: 0.3s;
+}
+
+@keyframes zoom {
+  from {transform: scale(0.1)} 
+  to {transform: scale(1)}
+}
+
+
+
+
+
+@media screen and (min-width: 375px) and (max-width: 992px) {
+
+	#MainMenu {
+		font-size: 0.65em;
+	}
+
+	#author_info {
+		font-size: 0.85em;
+	}
+
+	#GameLoadingScreen{
+		font-size: 0.55em;
+	}
+
+	.keyWrap {
+		width: 50px;
+    height: 50px;
+    padding-left: 2px;
+    padding-top: 7px;
+		font-size: 2em;
+	}
+
+	#gameTopBar .gameStatus {
+    font-size: 0.835em;
+    margin-top: 15px;
+	}
+
+	#gameTopBar {
+		text-align: center;
+		padding-left: 0;
+	}
+
+	#gameTopBarMenuButton {
+    font-family: var(--FF_02);
+    font-size: 1em;
+  }
+
+
+  .modal-content{
+  	max-width: 85%;
+  }
+
+	.modal-content-text {
+		font-family: var(--FF_02);
+    font-size: 1em;
+    line-height: 1.2em;
+	}
+
+	.modal-content-button {
+		font-size: 1.5em;
+	}
+
+	.modal-content-button .modalButton {
+		margin-right: 0;
+	}
+
+	.modal-content-button span {
+		display: block;
+	}
+
+}
